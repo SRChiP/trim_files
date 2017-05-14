@@ -1,0 +1,10 @@
+[Unit]
+Description=Delete old Discourse backups
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 trim_files --path /var/discourse/shared/standalone/backups/default
+
+[Install]
+WantedBy=multi-user.target
